@@ -1,13 +1,15 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
+import { SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 // Components
 import { LandingPage } from './components/landing/LandingPage';
 import { MainPage } from './components/main-page/MainPage';
 import { LoginPage } from './components/login/LoginPage';
-import { SignupPage } from './components/signup/SignupPage'
+import { SignupPage } from './components/signup/SignupPage';
+import { SplashPage } from './components/splash/SplashPage';
+import { ConfirmEmail } from './components/confirm-email/ConfirmEmail';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +20,10 @@ export default function App() {
         screenOptions={{
         headerShown: false
         }}>
+        <Stack.Screen
+          name="Splash"
+          component={SplashPage}
+          />
         <Stack.Screen
           name="Home"
           component={LandingPage}
@@ -33,6 +39,10 @@ export default function App() {
         <Stack.Screen
           name="Signup"
           component={SignupPage}
+          />
+        <Stack.Screen
+          name="Confirm"
+          component={ConfirmEmail}
           />
       </Stack.Navigator>
     </NavigationContainer>
